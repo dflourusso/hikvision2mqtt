@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require('express');
 const multer = require('multer');
 const mqtt = require("mqtt");
+const eventParser = require('./eventParser').EventParser
 
 const app = express();
 const PORT = 3001;
@@ -31,14 +32,15 @@ app.use((req, res, next) => {
 
 // Middleware to parse multipart/form-data
 app.post('/hikvision/events', upload.any(), (req, res) => {
-  const rawJson = req.body.event_log; // 'event_log' is the name of the field
+  const rawJson = req.body.event_log;
   let parsedJson;
 
   try {
     parsedJson = JSON.parse(rawJson);
-    console.log('🔹 Parsed Event:', parsedJson);
-    if (!!parsedJson?.AccessControllerEvent?.name && parsedJson?.AccessControllerEvent?.currentVerifyMode === 'face' && !!parsedJson?.AccessControllerEvent?.employeeNoString) {
-      sendMqttEvent(parsedJson);
+    const parsedEvent = eventParser(parsedJson)
+    if (process.env.ONLY_KNOWN_EVENTS !== 'true' || parsedEvent.eventName !== 'unknown') {
+      sendMqttEvent(parsedEvent);
+      console.log('🔹 Parsed Event:', parsedEvent);
     }
   } catch (error) {
     console.error('❌ JSON Parse Error:', error);
