@@ -1,7 +1,7 @@
 # hikvision2mqtt
 
-This is a node API that receive events from Hikvision face recognition terminal 
-events and convert it to mqtt events to be used for automations with home assistant
+This is a `node API` that receive events from `Hikvision` face recognition terminal 
+events and convert it to `mqtt events` to be used for automations with `home assistant`
 
 > Tested with DS-K1T342MWX model
   ![DS-K1T342MWX model](https://github.com/dflourusso/hikvision2mqtt/blob/main/docs/DS-K1T342MWX.png?raw=true)
