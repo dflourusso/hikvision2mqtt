@@ -5,7 +5,7 @@ const mqtt = require("mqtt");
 const eventParser = require('./eventParser').EventParser
 
 const app = express();
-const PORT = 3001;
+const PORT = 3000;
 
 const mqttOptions = {
   username: process.env.MQTT_USERNAME,

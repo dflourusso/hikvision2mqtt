@@ -1,0 +1,19 @@
+# version: "3.8"
+
+services:
+  app:
+    build: .
+    ports:
+      - "${PORT}:3000" # Maps container port dynamically from .env
+    environment:
+      # - PORT=${PORT} # Pass PORT from .env to container
+      - MQTT_URL=${MQTT_URL}
+      - MQTT_USERNAME=${MQTT_USERNAME}
+      - MQTT_PASSWORD=${MQTT_PASSWORD}
+      - MQTT_PUBLISH_TOPIC=${MQTT_PUBLISH_TOPIC}
+      - API_TOKEN=${API_TOKEN}
+      - INCLUDE_ORIGINAL_DATA=${INCLUDE_ORIGINAL_DATA}
+      - ONLY_KNOWN_EVENTS=${ONLY_KNOWN_EVENTS}
+    env_file:
+      - .env
+    restart: always # Ensure it restarts on failure

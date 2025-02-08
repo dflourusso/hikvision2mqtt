@@ -1,6 +1,6 @@
 {
   "name": "hikvision2mqtt",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Convert face recognition terminal events to mqtt",
   "main": "index.js",
   "author": "Daniel Lourusso",
