@@ -25,6 +25,7 @@ const upload = multer({ storage: multer.memoryStorage() });
 
 app.use((req, res, next) => {
   if (req.query?.token !== process.env.API_TOKEN) {
+    console.log('Invalid token')
     return res.status(401).send('Invalid token');
   }
   next()

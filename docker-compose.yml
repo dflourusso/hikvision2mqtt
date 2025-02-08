@@ -2,18 +2,19 @@
 
 services:
   app:
+    # image: dflourusso/hikvision2mqtt:1.0.1
     build: .
     ports:
       - "${PORT}:3000" # Maps container port dynamically from .env
     environment:
       # - PORT=${PORT} # Pass PORT from .env to container
-      - MQTT_URL=${MQTT_URL}
-      - MQTT_USERNAME=${MQTT_USERNAME}
-      - MQTT_PASSWORD=${MQTT_PASSWORD}
-      - MQTT_PUBLISH_TOPIC=${MQTT_PUBLISH_TOPIC}
-      - API_TOKEN=${API_TOKEN}
-      - INCLUDE_ORIGINAL_DATA=${INCLUDE_ORIGINAL_DATA}
-      - ONLY_KNOWN_EVENTS=${ONLY_KNOWN_EVENTS}
+      - MQTT_URL=${H2M_MQTT_URL}
+      - MQTT_USERNAME=${H2M_MQTT_USERNAME}
+      - MQTT_PASSWORD=${H2M_MQTT_PASSWORD}
+      - MQTT_PUBLISH_TOPIC=${H2M_MQTT_PUBLISH_TOPIC}
+      - API_TOKEN=${H2M_API_TOKEN}
+      - INCLUDE_ORIGINAL_DATA=${H2M_INCLUDE_ORIGINAL_DATA}
+      - ONLY_KNOWN_EVENTS=${H2M_ONLY_KNOWN_EVENTS}
     env_file:
       - .env
     restart: always # Ensure it restarts on failure
