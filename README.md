@@ -135,3 +135,11 @@ mode: single
 ## SIP server
 
 Docs to be done...
+
+## Development
+
+Build command:
+
+```sh
+docker image build --platform=linux/amd64,linux/arm64/v8 -t dflourusso/hikvision2mqtt:latest .
+```
