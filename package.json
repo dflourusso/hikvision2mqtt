@@ -1,8 +1,8 @@
 {
   "name": "hikvision2mqtt",
-  "version": "1.0.1",
-  "description": "Convert face recognition terminal events to mqtt",
-  "main": "index.js",
+  "version": "2.0.0",
+  "description": "Convert face recognition terminal events and SIP invites to mqtt events",
+  "main": "src/index.js",
   "author": "Daniel Lourusso",
   "license": "MIT",
   "private": false,
@@ -13,6 +13,8 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "mqtt": "^5.10.3",
-    "multer": "^1.4.5-lts.1"
-  }
+    "multer": "^1.4.5-lts.1",
+    "sip": "^0.0.6"
+  },
+  "packageManager": "yarn@1.22.22+sha1.ac34549e6aa8e7ead463a7407e1c7390f61a6610"
 }

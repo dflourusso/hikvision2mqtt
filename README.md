@@ -58,6 +58,7 @@ services:
     image: dflourusso/hikvision2mqtt:1.0.1
     ports:
       - "${PORT}:3000"
+      - "5060:5060/udp"
     environment:
       - MQTT_URL=${MQTT_URL}
       - MQTT_USERNAME=${MQTT_USERNAME}
@@ -130,3 +131,7 @@ actions:
 mode: single
 
 ```
+
+## SIP server
+
+Docs to be done...

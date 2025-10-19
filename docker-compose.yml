@@ -6,6 +6,7 @@ services:
     build: .
     ports:
       - "${PORT}:3000" # Maps container port dynamically from .env
+      - "5060:5060/udp"
     environment:
       # - PORT=${PORT} # Pass PORT from .env to container
       - MQTT_URL=${H2M_MQTT_URL}
